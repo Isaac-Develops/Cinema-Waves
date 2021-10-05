@@ -7,6 +7,7 @@ authors = ["Capstone Group 11"]
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^3.2.7"
+Pillow = "^8.3.2"
 
 [tool.poetry.dev-dependencies]
 
