@@ -6,7 +6,7 @@ from movies.models import Movie
 # Create your models here.
 class Review(models.Model):
     
-    class Raiting(models.IntegerChoices):
+    class Rating(models.IntegerChoices):
         ONE_STAR = 1
         TWO_STARS = 2
         THREE_STARS = 3
@@ -15,5 +15,5 @@ class Review(models.Model):
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    raiting = models.IntegerField(choices=Raiting.choices)
+    rating = models.IntegerField(choices=Rating.choices)
     text = models.TextField()
