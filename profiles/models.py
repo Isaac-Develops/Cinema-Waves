@@ -6,5 +6,5 @@ from movies.models import Movie
 # Create your models here.
 class User(AbstractUser):
     about = models.TextField(null=True, blank=True)
-    seen_movies = models.ManyToManyField(Movie, related_name='seen')
-    want_to_see_movies = models.ManyToManyField(Movie, related_name='want_to_see')
+    watched_movies = models.ManyToManyField(Movie, related_name='watched_movies')
+    watchlist = models.ManyToManyField(Movie, related_name='watchlist')
