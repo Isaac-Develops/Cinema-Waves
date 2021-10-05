@@ -1,5 +1,5 @@
 """
-WSGI config for covid_report project.
+WSGI config for imdb project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'covid_report.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'imdb.settings')
 
 application = get_wsgi_application()
