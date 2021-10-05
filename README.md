@@ -1,1 +1,1 @@
-# covid-report-app
+# IMDB App
