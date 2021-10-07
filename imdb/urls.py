@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from movies import views as mview
+from actors import views as aview
+from profiles import views as pview
+from reviews import views as rview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', mview.movie, name='home')
+    
 ]

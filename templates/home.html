@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>MOVIES AT YOUR FINGERTIPS</h1>
+    {% for movies in movie %}
+    <h3>{{movies.title}} <br> {{movies.image}} <br> {{movies.year_of_production}}</h3>
+    {% endfor %}
+
+
+{% endblock content %}
