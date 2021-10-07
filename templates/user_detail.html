@@ -1,0 +1,8 @@
+<h1>{{user.username}}</h1>
+
+<h3>About {{user.username}}:</h3>
+{% if user.about == None %}
+<p>Seems like there's nothing here...</p>
+{% else %}
+<p>{{user.about}}</p>
+{% endif %}
