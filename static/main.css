@@ -1,3 +1,9 @@
 :root{
-    background-color:darkslategray;
+    color: gray;
+    background-color:rgb(0, 0, 0);
+}
+
+.movies{
+    color: black;
+    background-color: rgba(146, 139, 139, 0.219);
 }
