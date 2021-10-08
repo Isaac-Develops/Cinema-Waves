@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +14,401 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="shortcut icon" type="image/png" href="https://secure-media.hotstar.com/web-assets/prod/D+H_favicon.ico"/>
     <title>{% block title %}{% endblock title %}- Disney+ clone</title>
-   
+    <style>
+        #mobile-navbar,
+        .search-mobile,
+        .mobile-search-box {
+        display: none;
+        }
+
+        @media only screen and (max-width: 1400px) {
+        header .left-header nav,
+        header .left-header .kids,
+        header .left-header .bars .dropdown,
+        header .right-header .search-form,
+        header .right-header .user-login {
+            display: none;
+        }
+        #mobile-navbar {
+            display: flex;
+            width: 0;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.418);
+            color: #fff;
+            z-index: 999999;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        #mobile-navbar .nav-left {
+            width: 80%;
+            background-color: #131b2b;
+        }
+        #mobile-navbar .nav-left .login-box {
+            position: relative;
+            width: 100%;
+            padding: 20px;
+        }
+        #mobile-navbar .nav-left .login-box h1 {
+            font-size: 22px;
+        }
+        #mobile-navbar .nav-left .login-box h3 {
+            color: gray;
+            font-weight: normal;
+            font-size: 17px;
+        }
+        #mobile-navbar .nav-left .login-box .fa-angle-right {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translate(0, -50%);
+            font-size: 30px;
+        }
+        #mobile-navbar .nav-left .hr {
+            width: 100%;
+            height: 1px;
+            background-color: rgb(68, 68, 68);
+        }
+        #mobile-navbar .nav-left .kids-safe-box {
+            width: 100%;
+            position: relative;
+        }
+        #mobile-navbar .nav-left .kids-safe-box .kids-logo {
+            padding: 20px;
+        }
+        #mobile-navbar .nav-left .kids-safe-box .kids-logo img {
+            width: 120px;
+        }
+        #mobile-navbar .nav-left .kids-safe-box .toggler {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translate(0, -50%);
+        }
+        #mobile-navbar .nav-left .kids-safe-box .toggler .toggle-box {
+            width: 60px;
+            height: 30px;
+            background-color: #161616;
+            border-radius: 20px;
+            border: 1px groove #fff;
+            cursor: pointer;
+        }
+        #mobile-navbar .nav-left .kids-safe-box .toggler .toggle-box .circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        #mobile-navbar .nav-left .nav-ul ul li {
+            margin: 20px 0;
+            display: block;
+        }
+        #mobile-navbar .nav-left .nav-ul ul li a {
+            display: block;
+            padding: 20px;
+            font-weight: normal;
+        }
+        #mobile-navbar .nav-left .nav-ul ul li a:hover {
+            background-color: #0c111b;
+        }
+        #mobile-navbar .nav-left .watch-list {
+            padding: 20px;
+        }
+        #mobile-navbar .nav-left .watch-list a {
+            font-weight: normal;
+            font-size: 20px;
+        }
+        #mobile-navbar .nav-right {
+            width: 20%;
+            height: 100vh;
+        }
+        .search-mobile {
+            display: block;
+        }
+        }
+        @media only screen and (max-width: 600px) {
+        header {
+            padding: 20px;
+        }
+        header .right-header .btn1 a {
+            padding: 5px 10px;
+            margin-right: 75px;
+            font-size: 12px;
+        }
+        header .left-header .brand a img {
+            width: 130px;
+        }
+        header .left-header .bars .fa-bars {
+            padding: 5px;
+        }
+        .search-mobile .mobile-search-icon {
+            display: block;
+            position: relative;
+            right: 40px;
+            top: 1px;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .mobile-search-box {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #141b29;
+            z-index: 99999;
+            overflow: hidden;
+        }
+        .mobile-search-box .search-input-box {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .mobile-search-box .search-input-box form .mobile-input-search {
+            width: 100%;
+            height: 50px;
+            outline: none;
+            border: none;
+            background-color: #0c111b;
+            padding: 10px 80px;
+            font-family: "Poppins";
+            font-weight: 500;
+            font-size: 22px;
+            color: rgb(177, 177, 177);
+        }
+        .mobile-search-box .search-input-box form .mobile-input-search::placeholder {
+            color: #dddddd;
+        }
+        .mobile-search-box .search-input-box form .fa-arrow-left {
+            position: absolute;
+            left: 30px;
+            top: 33%;
+            color: rgb(177, 177, 177);
+            cursor: pointer;
+        }
+        .mobile-search-box .search-input-box form .btn-moblie-times-reset .fa-times {
+            position: absolute;
+            right: 30px;
+            top: 33%;
+            color: rgb(177, 177, 177);
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .mobile-search-box .content-search-box-mobile {
+            width: 100%;
+            text-align: center;
+            margin-top: 70%;
+        }
+        .mobile-search-box .content-search-box-mobile h1 {
+            font-size: 20px;
+            font-weight: normal;
+            color: rgb(177, 177, 177);
+        }
+        }
+         #home .thumbnail{
+             width: 100%;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             padding: 20px 90px;
+         }
+         #home .thumbnail .box{
+             position: relative;
+             width: 200%;
+             height: 100%;
+             overflow: hidden;
+            border-radius: 10px;
+            margin: 20px;
+         }
+         #home .thumbnail .box img{
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            filter: brightness(1.2);
+         }
+         #home .thumbnail .box video{
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 98%;
+             height: 98%;
+             object-fit: cover;
+             border-radius: 10px;
+             z-index: -1;
+             filter: brightness(1.2);
+         }
+         #home .thumbnail .box:hover video{
+             z-index: 1;
+             transform: scale(1.1);
+         }
+         #home .thumbnail .box:hover{
+             transition: all .5s ease;
+             transform: scale(1.1);
+         }
+         @media only screen and (max-width: 850px){
+             #home .thumbnail{
+                 flex-wrap: wrap;
+             }
+             #home .thumbnail .box{
+                 width: 40%;
+                 height: 150px;
+                 margin: 20px;
+             }
+         }
+         @media only screen and (max-width: 650px){
+             #home .thumbnail{
+                padding: 30px;
+             }
+             #home .thumbnail .box{
+                 width: 100%;
+                 height: 100%;
+                 margin: 10px;
+             }
+         }
+         #home .recomandations{
+             width: 100%;
+             padding: 30px 100px;
+         }
+         #home .recomandations a{
+             padding: 20px 0;
+             font-size: 40px;
+         }
+         #home .recomandations a:hover{
+             color: rgb(58, 150, 255);
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide{
+             width: max-content;
+             height: max-content;
+             border-radius: 10px;
+             background: #000;
+             position: relative;
+             transition: all .5s ease;
+             overflow: hidden;
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide .card .image-holder img{
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             object-position: center;
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide .card .title-card{
+             width: 100%;
+             position: absolute;
+             left: 0;
+             bottom: -20px;
+             z-index: 2;
+             background: linear-gradient(to top, rgba(0, 0, 0, 0.89), rgba(8, 9, 24, 0.89));
+             visibility: hidden;
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide .card .title-card h2{
+             font-size: 17px;
+             padding: 50% 0;
+             font-family: 'Poppins';
+             font-weight: 600;
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide .card:hover .title-card{
+             visibility: visible;
+             top: 0;
+             padding: 10px;
+             transition: all .3s ease;
+         }
+         #home .recomandations .glide-c .glide__track .glide__slides .glide__slide:hover{
+             transform: scale(1.2);
+             transition: all .5s ease;
+         }
+         #home .recomandations .glide-c{
+             position: relative;
+             margin-top: 30px;
+         }
+         #home .recomandations .glide-c .glide__arrow--left{
+             position: absolute;
+             left: 0;
+         }
+         #home .recomandations .glide-c .glide__arrow--left{
+             position: absolute;
+             right: 0;
+         }
+         @media only screen and (max-width: 650px){
+             #home .recomandations{
+                 width: 100%;
+                 padding: 30px;
+             }
+             #home .recomandations a{
+                 font-size: 25px;
+             }
+         }
+         footer{
+             width: 100%;
+             display: flex;
+             justify-content: space-around;
+             align-items: baseline;
+             text-align: center;
+             background: #000;
+             padding: 30px;
+             flex-wrap: wrap;
+         }
+         #search{
+             width: 100%;
+             margin-top: 100px;
+             min-height: 100vh;
+         }
+         #search h1{
+             padding: 30px 60px;
+             color: rgb(177, 177, 177);
+         }
+         #search h1 span{
+            font-style: italic;
+            font-family: "Poppins";
+            font-weight: normal;
+         }
+        #search .cards-results{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 60px;
+            flex-wrap: wrap;
+        }
+        #search .cards-results a{
+            width: max-content;
+            height: max-content;
+            overflow: hidden;
+            position: relative;
+            margin: 30px;
+        }
+        #search .cards-results a img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        #search .cards-results a h2{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.63);
+            display: flex;
+            padding: 5px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            visibility: hidden;
+            transition: all .5s ease;
+        }
+        #search .cards-results a:hover h2{
+            visibility: visible;
+            top: 0;
+            transition: all .5s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Nav Starts -->
@@ -158,6 +551,81 @@
     <!-- Mobile Nav / Side bar ends -->
 
     <!-- Mobile Search Box -->
-    
+    <div class="mobile-search-box">
+        <div class="search-input-box">
+            <form action="/search/">
+            {% csrf_token %}
+                <input type="text" name="query" id="query" placeholder="Searching..." class="mobile-input-search">
+                <i class="fas fa-arrow-left"></i>
+                <button type="reset" class="btn-moblie-times-reset"><i class="fas fa-times" aria-hidden="true"></i></button>
+            </form>
+        </div>
+        <div class="content-search-box-mobile">
+            <h1>Search for</h1>
+            <h1>shows, movies, sports and TV</h1>
+            <h1>channels</h1>
+        </div>
+    </div>
+    <!-- Mobile Search Box ends-->
+    {% block body %}{% endblock body %}
+    <footer>
+        <p>Ocean's 11 Movie Site Clone</p>
+        <p>&copy;2021 All Rights Reserved</p>
+        <p><a href="https://go.kenzie.academy/software-engineering/?kenzie_source=ppc&utm_term=kenzie%20academy&utm_campaign=SW_google_Amazon_Branded&utm_content=&utm_source=ppc&utm_medium=google&hsa_acc=1219248764&hsa_cam=13140945827&hsa_grp=122603496939&hsa_ad=522151902876&hsa_src=g&hsa_tgt=kwd-442504904397&hsa_kw=kenzie%20academy&hsa_mt=p&hsa_net=adwords&hsa_ver=3&gclid=CjwKCAjw2P-KBhByEiwADBYWCgzucm-cPyGwYu0YwErhonpTlrvtdoWa9_ZqX0bdtTjTIGtMcRk4JxoC61cQAvD_BwE">KENZIE MADE</a></p>
+    </footer>
+    <!-- Scripts -->
+    <script src="{% static 'js/app.js'%}"></script>
+    <script src="{% static 'js/glide.min.js'%}"></script>
+    <script>
+        new Glide('.glide', {
+            type:'carousel',
+            startAt: 0,
+            perView: 1.1,
+            hoverpause: true,
+            autoplay: 3000,
+            gap: 30,
+            focusAt: 'center',
+            dragThreshold: false,
+            breakpoints:{
+                650: {
+                    perView: 1.1,
+                    gap: 10,
+                }
+            }
+        }).mount();
+        // Crads
+        new Glide('.glide2', {
+            type:'carousel',
+            startAt: 0,
+            perView: 6,
+            hoverpause: true,
+            autoplay: 3000,
+            gap: 30,
+            focusAt: 'center',
+            dragThreshold: 150,
+            breakpoints:{
+                650: {
+                    perView: 2,
+                    gap: 10,
+                }
+            }
+        }).mount();
+        new Glide('.glide3', {
+            type:'carousel',
+            startAt: 0,
+            perView: 6,
+            hoverpause: true,
+            autoplay: 3000,
+            gap: 30,
+            focusAt: 'center',
+            dragThreshold: 150,
+            breakpoints:{
+                650: {
+                    perView: 2,
+                    gap: 10,
+                }
+            }
+        }).mount();
+    </script>
 </body>
 </html>
