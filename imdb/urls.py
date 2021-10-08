@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from profiles.views import user_profile_view
+from reviews.views import review_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/<int:id>/', user_profile_view, name='profiles'),
+    path('reviews/<int:id>/', review_detail_view, name='reviews'),
 ]
