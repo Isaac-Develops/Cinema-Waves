@@ -1,13 +1,163 @@
+
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>{% block title %}Kenzie Made{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/glide.core.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/glide.theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/banner-cards.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="shortcut icon" type="image/png" href="https://secure-media.hotstar.com/web-assets/prod/D+H_favicon.ico"/>
+    <title>{% block title %}{% endblock title %}- Disney+ clone</title>
+   
 </head>
 <body>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <!-- Nav Starts -->
+    <header>
+        <div class="left-header">
+            <div class="bars">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <div class="dropdown">
+                    <li><a href="https://www.hotstar.com/in/channels">Channels</a></li>
+                    <li><a href="https://www.hotstar.com/in/languages">Languages</a></li>
+                    <li><a href="https://www.hotstar.com/in/genres">Genres</a></li>
+                </div>
+            </div>
+            <div class="brand">
+                <a href="/">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/tv">TV</a>
+                        <ul class="li-ul-dropdown">
+                            <li><a href="https://www.hotstar.com/in/channels/hotstar-specials">Hotstar Special</a></li>
+                            <li><a href="https://www.hotstar.com/in/channels/starplus">Star Plus</a></li>
+                            <li><a href="https://www.hotstar.com/in/channels/showtime">Show Time</a></li>
+                            <li><a href="https://www.hotstar.com/in/channels/quix">Quix</a></li>
+                            <li><a href="https://www.hotstar.com/in/channels/fox-life">Foxlife</a></li>
+                            <li><a href="https://www.hotstar.com/in/channels">more..</a></li>
+                        </ul>
+                   </li>
+                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/movies<">Movies</a>
+                         <ul class="li-ul-dropdown">
+                            <li><a href="https://www.hotstar.com/in/movies/languages/hindi">Hindi</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/english">English</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/marathi">Marathi</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/telugu">Telugu</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/bengali">Bengali</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/malayalam">Malayalam</a></li>
+                            <li><a href="https://www.hotstar.com/in/movies/languages/kannada">Kannada</a></li>
+                         </ul>
+                   </li>
+                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/sports">Sports</a>
+                         <ul class="li-ul-dropdown">
+                            <li><a href="https://www.hotstar.com/in/sports/cricket">Cricket</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/football">Football</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/badminton">Badminton</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/tennis">Tennis</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/formula-1">Formula 1</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/golf">Golf</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/hockey">Hockey</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/wrestling">Wrestling</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/kabaddi">Kabaddi</a></li>
+                            <li><a href="https://www.hotstar.com/in/sports/esports">eSports</a></li>
+                         </ul>
+                   </li>
+                   <li><a href="https://www.hotstar.com/in/news">News</a></li>
+                   <li><a href="https://www.hotstar.com/in/premium">Premium</a></li>
+                   <li><a href="https://www.hotstar.com/in/disneyplus">Diseny+</a></li>
+                </ul>
+            </nav>
+            <div class="kids">
+                <a href="https://www.hotstar.com/in">
+                    <div class="kids-logo">
+                        <img src="{% static 'images/kids.svg' %}" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="right-header">
+            <form action="/search/" class="search-form">
+            {% csrf_token %}
+                <div class="search-bar">
+                    <input type="text" name="query" id="query" placeholder="Search" class="input-search">
+                    <button type="submit" class="search-icon"><i class="fas fa-search" aria-hidden="true"></i></button>
+                </div>
+            </form>
+            <div class="btn1"><a href="https://www.hotstar.com/in/subscribe/get-started">SUBSCRIBE</a></div>
+            {% if user.is_authenticated %}
+                <p class="user-login"><a href="/logout/">{{user.get_username}} , Logout</a></p>
+            {% else %}
+                <div class="user-login"><a href="#">Login</a></div>
+            {% endif %}
+            <div class="search-mobile">
+                <i class="fas fa-search mobile-search-icon" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Nav Ends -->
+    <!-- Mobile Nav / Side bar -->
+    <div id="mobile-navbar">
+        <div class="nav-left">
+            <div class="login-box">
+             {% if user.is_authenticated %}
+                <a href="/logout/">
+                    <h1>{{user.get_username}} , Logout</h1>
+                    <h3>For a better experience</h3>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            {% else %}
+                <a href="#">
+                    <h1>Log in</h1>
+                    <h3>For a better experience</h3>
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            {% endif %}
+
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="watch-list">
+                <a href="https://www.hotstar.com/in/subscribe/my-account">
+                    WatchList
+                </a>
+            </div>
+
+            <div class="hr"></div>
+            <div class="kids-safe-box">
+                <div class="kids-logo">
+                    <img src="{% static 'images/kidsSafe.svg' %}" alt="">
+                </div>
+                <div class="toggler">
+                    <div class="toggle-box">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-ul">
+                <ul>
+                    <li><a href="https://www.hotstar.com/in/news">News</a></li>
+                    <li><a href="https://www.hotstar.com/in/premium">Premium</a></li>
+                    <li><a href="https://www.hotstar.com/in/channels">Channels</a></li>
+                    <li><a href="https://www.hotstar.com/in/languages">Languages</a></li>
+                    <li><a href="https://www.hotstar.com/in/genres">Genres</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-right"></div>
+    </div>
+    <!-- Mobile Nav / Side bar ends -->
+
+    <!-- Mobile Search Box -->
+    
 </body>
 </html>
