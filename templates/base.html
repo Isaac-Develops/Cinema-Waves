@@ -466,7 +466,7 @@
                    </li>
                    <li><a href="https://www.hotstar.com/in/news">News</a></li>
                    <li><a href="https://www.hotstar.com/in/premium">Premium</a></li>
-                   <li><a href="https://www.hotstar.com/in/disneyplus">Diseny+</a></li>
+                   <li><a href="#">Actors</a></li>
                 </ul>
             </nav>
             <div class="kids">
@@ -489,7 +489,7 @@
             {% if user.is_authenticated %}
                 <p class="user-login"><a href="/logout/">{{user.get_username}} , Logout</a></p>
             {% else %}
-                <div class="user-login"><a href="#">Login</a></div>
+                <div class="user-login"><a href="http://localhost:8000/login/">Login</a></div>
             {% endif %}
             <div class="search-mobile">
                 <i class="fas fa-search mobile-search-icon" aria-hidden="true"></i>

@@ -1,6 +1,8 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, reverse, HttpResponseRedirect, HttpResponse
 from .models import BannerCards, Cards
 from django.contrib.auth.models import auth
+from django.views.generic import View
+
 # Create your views here.
 
 
