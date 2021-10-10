@@ -1,21 +1,25 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login
 from profiles.forms import LoginForm
+from django.views.generic import View
 
 # Create your views here.
 
 
-def login_view(request):
-    context = {}
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            user = authenticate(
-                request, username=data['username'], password=data['password'])
-            if user:
+class LoginView(View):
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if user.is_active:
                 login(request, user)
-                return redirect('home')
-    form = LoginForm()
-    context.update({'form': form})
-    return render(request, 'login.html', context)
+
+                return HttpResponseRedirect('/form')
+            else:
+                return HttpResponse("Inactive user.")
+        else:
+            return HttpResponseRedirect("LOGIN_URL")
+
+        return render(request, "login.html")
