@@ -1,3 +1,33 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, reverse, HttpResponseRedirect, HttpResponse
+from .models import BannerCards, Cards
+from django.contrib.auth.models import auth
+from django.views.generic import View
 
 # Create your views here.
+
+
+def home(request):
+    bannerCards = BannerCards.objects.all()
+    cards = Cards.objects.all()
+    context = {
+        'bannerCards': bannerCards,
+        'cards': cards,
+    }
+    return render(request, "Home/home.html", context)
+
+
+def search(request):
+    query = request.GET['query']
+    title = Cards.objects.filter(title__icontains=query)
+    category = Cards.objects.filter(category__icontains=query)
+    allCards = title.union(category)
+    context = {
+        'allCards': allCards,
+        "query": query,
+    }
+    return render(request, "Home/search.html", context)
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect("/")

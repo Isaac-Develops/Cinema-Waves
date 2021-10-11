@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Movie(models.Model):
     ACTION = 'AC'
     DRAMA = 'DR'
@@ -33,12 +35,40 @@ class Movie(models.Model):
 
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000, null=True, blank=True)
-    image = models.ImageField(upload_to='movies', default='assets/default_movie.png')
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=1, default=ACTION)
-    language = models.CharField(choices=LANGUAGES_CHOICES, max_length=2, default=ENGLISH)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=2, default=RECENTLY_ADDED)
+    image = models.ImageField(
+        upload_to='movies', default='assets/default_movie.png')
+    category = models.CharField(
+        choices=CATEGORY_CHOICES, max_length=1, default=ACTION)
+    language = models.CharField(
+        choices=LANGUAGES_CHOICES, max_length=2, default=ENGLISH)
+    status = models.CharField(choices=STATUS_CHOICES,
+                              max_length=2, default=RECENTLY_ADDED)
     year_of_production = models.DateField()
     views_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+    from django.db import models
+
+# Create your models here.
+
+
+class BannerCards(models.Model):
+    title = models.CharField(max_length=200)
+    category = models.CharField(max_length=100)
+    content = models.TextField()
+    imageurl = models.CharField(max_length=1000)
+    targetUrl = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.title
+
+
+class Cards(models.Model):
+    title = models.CharField(max_length=200)
+    category = models.CharField(max_length=100)
+    imageurl = models.CharField(max_length=1000)
+    targetUrl = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.title
