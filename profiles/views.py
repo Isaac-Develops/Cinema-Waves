@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect, HttpResponse
+from django.shortcuts import render,  HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login
-from profiles.forms import LoginForm
 from django.views.generic import View
 
 # Create your views here.
