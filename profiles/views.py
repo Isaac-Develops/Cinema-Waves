@@ -34,6 +34,22 @@ def watched_list_view(request, id):
     return HttpResponseRedirect(reverse('movies', args=(id,)))
 
 
+@login_required
+def remove_watchlist_view(request, id):
+    user = request.user
+    movie = Movie.objects.get(id=id)
+    user.watchlist.remove(movie)
+    return HttpResponseRedirect(reverse('movies', args=(id,)))
+
+
+@login_required
+def remove_watchedlist_view(request, id):
+    user = request.user
+    movie = Movie.objects.get(id=id)
+    user.watched_movies.remove(movie)
+    return HttpResponseRedirect(reverse('movies', args=(id,)))
+
+
 class LoginView(View):
     def post(self, request):
         username = request.POST['username']
