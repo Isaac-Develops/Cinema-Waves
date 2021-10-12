@@ -1,6 +1,42 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
+{% load static %}
+<style>
+  .background {
+    background-image: url('{% static 'images/a.jpg' %}');
+    background-size: auto;
+    width: 15%;
+    height: 35%;
+    border: solid 2px lightblue;
+    color: white;
+    margin-top: 20%;
+  }
+
+  center.log_head {
+    background-image: url('{% static 'images\immo-wegmann-dbm5Ywq45s8-unsplash.jpg' %}');
+    background-size: cover;
+    width: auto;
+    height: 99%;
+    border: solid 2px lightblue;
+  }
+
+  button.sub_but {
+    opacity: .7;
+    color: black;
+  }
+
+  button.sub_but:hover {
+    opacity: 1;
+    margin-left: 100%;
+    margin-top: 50%;
+    width: 25%;
+    color: white;
+    background-color: black;
+  }
+</style>
+<center class="log_head">
+  <form method="post" class="background">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="sub_but">Log In</button>
+  </form>
+</center>
