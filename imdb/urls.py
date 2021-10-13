@@ -27,3 +27,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('', include("movies.urls")),
 ]
+
+handler404 = 'movies.views.page_not_found_view'
+handler500 = 'movies.views.server_error_view'
