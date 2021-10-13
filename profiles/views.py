@@ -1,4 +1,4 @@
-from django.shortcuts import render,  HttpResponseRedirect, HttpResponse
+from django.shortcuts import render,  HttpResponseRedirect, HttpResponse, render
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
 
