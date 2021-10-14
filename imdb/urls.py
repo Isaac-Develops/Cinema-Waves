@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
 
 from profiles.views import (
     user_profile_view,
@@ -26,7 +28,7 @@ urlpatterns = [
     path('actors/<int:id>/', actor_detail_view, name='actors'),
     path('login/', LoginView.as_view(), name='login'),
     path('', include("movies.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'movies.views.page_not_found_view'
 handler500 = 'movies.views.server_error_view'
