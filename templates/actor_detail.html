@@ -5,7 +5,13 @@
 <h1>{{actor.name}}</h1>
 <img src="{{actor.image.url}}" alt="A picture of {{actor.name}}"/>
 <p>{{actor.image.url}}</p>
-<p>Gender: {{actor.gender}}</p>
+{% if actor.gender == 1 %}
+<p>Gender: Male</p>
+{% elif actor.gender == 2 %}
+<p>Gender: Female</p>
+{% else %}
+<p>Gender: Other</p>
+{% endif %}
 <p>Birthday: {{actor.birthday}}</p>
 <p>Biography: {{actor.biography}}</p>
 <div class="movies">
