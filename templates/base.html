@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'css/banner-cards.css' %}">
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="shortcut icon" type="image/png" href="https://secure-media.hotstar.com/web-assets/prod/D+H_favicon.ico"/>
-    <title>{% block title %}{% endblock title %}- Disney+ clone</title>
+    <title>{% block title %}{% endblock title %}Cinema Wave</title>
     <style>
         #mobile-navbar,
         .search-mobile,
@@ -504,7 +504,7 @@
              {% if user.is_authenticated %}
                 <a href="/logout/">
                     <h1>{{user.get_username}} , Logout</h1>
-                    <h3>For a better experience</h3>
+                    <h3><a href="/users/{{user.id}}">Profile</a></h3>
                     <i class="fas fa-angle-right"></i>
                 </a>
             {% else %}

@@ -2,12 +2,14 @@ from django.shortcuts import render, reverse,  HttpResponseRedirect, HttpRespons
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View
-
+from django.shortcuts import redirect
 from .models import User
 from reviews.models import Review
 from movies.models import Movie
+from profiles.forms import UserCreationForm
 
 # Create your views here.
+
 
 def user_profile_view(request, id):
     user = User.objects.get(id=id)
@@ -51,6 +53,22 @@ def remove_watchedlist_view(request, id):
     return HttpResponseRedirect(reverse('movies', args=(id,)))
 
 
+def register_user(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+        return render(request, 'registration/register_user.html',
+                      {'form': form, })
+
+
 class LoginView(View):
     def post(self, request):
         username = request.POST['username']
@@ -68,19 +86,3 @@ class LoginView(View):
             return HttpResponseRedirect("LOGIN_URL")
 
         return render(request, "login.html")
-
-
-def register_user(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-        return render(request, 'authenticate/register_user.html',
-                      {'form': form, })

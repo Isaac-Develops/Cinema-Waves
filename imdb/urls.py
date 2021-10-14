@@ -26,6 +26,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path("search/", mview.search, name="search"),
     path("logout/", mview.logout, name="logout"),
+    path('register/', pview.register_user, name='register')
 ]
 
 handler404 = 'movies.views.page_not_found_view'

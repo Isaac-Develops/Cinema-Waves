@@ -1,0 +1,25 @@
+{% include 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h1>{{user.username}}</h1>
+{% if user.about is None %}
+<p></p>
+{% else %}
+<p>{{user.about}}</p>
+{% endif %}
+<br><br><br><br><br>
+{% if user.watched_movies is None %}
+<p></p>
+{% else %}
+<p>Watched Movies: <br>{{user.watched_movies}}</p>
+{% endif %}
+<br><br><br><br><br>
+{% if user.watchlist is None %}
+<p></p>
+{% else %}
+<p>Watchlist: <br>{{user.watchlist}}</p>
+{% endif %}
+<br><br><br><br><br>
+{% endblock content %}
