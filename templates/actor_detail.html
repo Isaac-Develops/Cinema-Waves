@@ -11,10 +11,12 @@
 <div class="movies">
     <ul>
     {% for movie in actor.movies.all %}
+    <a href="/movies/{{movie.id}}/">
         <li>
             <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
             <p>{{movie.image.url}}</p>
         </li>
+    </a>
     {% endfor %}
     </ul>
 </div>
