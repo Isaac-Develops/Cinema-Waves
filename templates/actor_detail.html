@@ -4,7 +4,6 @@
 
 <h1>{{actor.name}}</h1>
 <img src="{{actor.image.url}}" alt="A picture of {{actor.name}}"/>
-<p>{{actor.image.url}}</p>
 {% if actor.gender == 1 %}
 <p>Gender: Male</p>
 {% elif actor.gender == 2 %}
@@ -20,7 +19,6 @@
     <a href="/movies/{{movie.id}}/">
         <li>
             <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
-            <p>{{movie.image.url}}</p>
         </li>
     </a>
     {% endfor %}
