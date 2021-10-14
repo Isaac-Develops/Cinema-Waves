@@ -489,7 +489,7 @@
             {% if user.is_authenticated %}
                 <p class="user-login"><a href="/logout/">{{user.get_username}} , Logout</a></p>
             {% else %}
-                <div class="user-login"><a href="http://localhost:8000/login/">Login</a></div>
+                <div class="user-login"><a href="/login/">Login</a></div>
             {% endif %}
             <div class="search-mobile">
                 <i class="fas fa-search mobile-search-icon" aria-hidden="true"></i>
@@ -508,7 +508,7 @@
                     <i class="fas fa-angle-right"></i>
                 </a>
             {% else %}
-                <a href="http://localhost:8000/login/">
+                <a href="/login/">
                     <h1>Log in</h1>
                     <h3>For a better experience</h3>
                     <i class="fas fa-angle-right"></i>

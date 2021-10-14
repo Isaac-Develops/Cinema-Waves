@@ -8,6 +8,7 @@ from reviews.models import Review
 from movies.models import Movie
 
 # Create your views here.
+
 def user_profile_view(request, id):
     user = User.objects.get(id=id)
     reviews = Review.objects.filter(author=user)
@@ -67,3 +68,19 @@ class LoginView(View):
             return HttpResponseRedirect("LOGIN_URL")
 
         return render(request, "login.html")
+
+
+def register_user(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+        return render(request, 'authenticate/register_user.html',
+                      {'form': form, })
