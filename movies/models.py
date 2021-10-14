@@ -36,7 +36,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000, null=True, blank=True)
     image = models.ImageField(
-        upload_to='assets', default='static/images/default_movie.png')
+        upload_to='assets', default='default_movie.png')
     category = models.CharField(
         choices=CATEGORY_CHOICES, max_length=1, default=ACTION)
     language = models.CharField(
