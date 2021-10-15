@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Reviews {% endblock %}
+{% block body %}
+
+<h3>Review by: <a href="/profiles/{{author.id}}/">{{author.username}}</a></h3>
+<p>Movie: <a href="/movies/{{movie.id}}/">{{movie.title}}</a></p>
+<p>Rating: {{rating}} Stars</p>
+<textarea>{{text}}</textarea>
+
+{% endblock %}
