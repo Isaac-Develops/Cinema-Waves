@@ -39,12 +39,11 @@ def home(request):
 
 def search(request):
     query = request.GET['query']
-    title = Cards.objects.filter(title__icontains=query)
-    category = Cards.objects.filter(category__icontains=query)
-    allCards = title.union(category)
+    movies = Movie.objects.filter(title__icontains=query)
+    actors = Actor.objects.filter(name__icontains=query)
     context = {
-        'allCards': allCards,
-        "query": query,
+        'movies': movies,
+        "actors": actors,
     }
     return render(request, "Home/search.html", context)
 
