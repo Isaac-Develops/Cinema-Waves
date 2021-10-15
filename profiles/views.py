@@ -14,7 +14,7 @@ from django.shortcuts import redirect
 from .models import User
 from reviews.models import Review
 from movies.models import Movie
-from profiles.forms import UserCreationForm
+from profiles.forms import UserCreationForm, UserEdit
 
 # Create your views here.
 
@@ -75,6 +75,19 @@ def register_user(request):
         form = UserCreationForm()
         return render(request, 'registration/register_user.html',
                       {'form': form, })
+
+
+def user_edit(request, id):
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        form = UserEdit(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user.about = data['about']
+            user.save()
+            return render(request, 'user_detail.html')
+    form = UserEdit()
+    return render(request, 'registration/edit_profile.html', {'form': form})
 
 
 class LoginView(View):
