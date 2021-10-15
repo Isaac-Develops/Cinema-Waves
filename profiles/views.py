@@ -1,5 +1,13 @@
-from django.shortcuts import render, reverse,  HttpResponseRedirect, HttpResponse
-from django.contrib.auth import authenticate, login
+from django.shortcuts import (
+    render,
+    reverse,
+    HttpResponseRedirect,
+    HttpResponse
+)
+from django.contrib.auth import (
+    authenticate,
+    login
+)
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from django.shortcuts import redirect
@@ -84,5 +92,3 @@ class LoginView(View):
                 return HttpResponse("Inactive user.")
         else:
             return HttpResponseRedirect("LOGIN_URL")
-
-        return render(request, "login.html")
