@@ -1,13 +1,24 @@
-from django.shortcuts import render, reverse,  HttpResponseRedirect, HttpResponse
-from django.contrib.auth import authenticate, login
+from django.shortcuts import (
+    render,
+    reverse,
+    HttpResponseRedirect,
+    HttpResponse
+)
+from django.contrib.auth import (
+    authenticate,
+    login
+)
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View
-
+from django.shortcuts import redirect
 from .models import User
 from reviews.models import Review
 from movies.models import Movie
+from profiles.forms import UserCreationForm, UserEdit
 
 # Create your views here.
+
+
 def user_profile_view(request, id):
     user = User.objects.get(id=id)
     reviews = Review.objects.filter(author=user)
@@ -50,6 +61,35 @@ def remove_watchedlist_view(request, id):
     return HttpResponseRedirect(reverse('movies', args=(id,)))
 
 
+def register_user(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+        return render(request, 'registration/register_user.html',
+                      {'form': form, })
+
+
+def user_edit(request, id):
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        form = UserEdit(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user.about = data['about']
+            user.save()
+            return render(request, 'user_detail.html')
+    form = UserEdit()
+    return render(request, 'registration/edit_profile.html', {'form': form})
+
+
 class LoginView(View):
     def post(self, request):
         username = request.POST['username']
@@ -65,5 +105,3 @@ class LoginView(View):
                 return HttpResponse("Inactive user.")
         else:
             return HttpResponseRedirect("LOGIN_URL")
-
-        return render(request, "login.html")
