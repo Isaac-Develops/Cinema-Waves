@@ -2,9 +2,9 @@
 {% block title %} Reviews {% endblock %}
 {% block body %}
 
-<h3>Review by: <a href="/profiles/{{author.id}}/">{{author.username}}</a></h3>
-<p>Movie: <a href="/movies/{{movie.id}}/">{{movie.title}}</a></p>
-<p>Rating: {{rating}} Stars</p>
-<textarea>{{text}}</textarea>
+<h3>Review by: <a href="/users/{{review.author.id}}/">{{review.author.username}}</a></h3>
+<p>Movie: <a href="/movies/{{review.movie.id}}/">{{review.movie.title}}</a></p>
+<p>Rating: {{review.rating}} Stars</p>
+<textarea>{{review.text}}</textarea>
 
 {% endblock %}

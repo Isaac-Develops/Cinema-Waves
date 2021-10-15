@@ -16,7 +16,8 @@ class CreateReviewView(LoginRequiredMixin, View):
 
     def get(self, request, id):
         form = AddReviewForm()
-        return render(request, self.template_name, {'form': form})
+        movie = Movie.objects.get(id=id)
+        return render(request, self.template_name, {'form': form, "movie": movie})
 
     def post(self, request, id):
         form = AddReviewForm(request.POST)
