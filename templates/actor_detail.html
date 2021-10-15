@@ -2,6 +2,11 @@
 {% block title %} Actor Profile {% endblock %}
 {% block body %}
 
+<div class="row">
+
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
 <h1>{{actor.name}}</h1>
 <img src="{{actor.image.url}}" alt="A picture of {{actor.name}}"/>
 {% if actor.gender == 1 %}
@@ -13,16 +18,29 @@
 {% endif %}
 <p>Birthday: {{actor.birthday}}</p>
 <p>Biography: {{actor.biography}}</p>
+
+</div>
+</div>
+</div>
+
+<br><br>
+<h4 class="orange-text">Known for: </h4>
+<div class="divider"></div>
 <div class="movies">
-    <ul>
+        <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
     {% for movie in actor.movies.all %}
     <a href="/movies/{{movie.id}}/">
-        <li>
+        <div class="card-content">
             <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
-        </li>
     </a>
+
+</div>
+</div>
+</div>
     {% endfor %}
-    </ul>
+  
 </div>
 
 {% endblock %}
