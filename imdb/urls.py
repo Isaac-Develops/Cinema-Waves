@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView
+from django.conf import settings
+from django.conf.urls.static import static
+
 from reviews import views as rview
 from movies import views as mview
 from actors import views as aview
@@ -28,7 +31,7 @@ urlpatterns = [
     path("logout/", mview.logout, name="logout"),
     path('register/', pview.register_user, name='register'),
     path('edit_user/<int:id>/', pview.user_edit, name='user_edit')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'movies.views.page_not_found_view'
 handler500 = 'movies.views.server_error_view'

@@ -18,8 +18,13 @@ from reviews.models import Review
 def movie_detail_view(request, id):
     movie = Movie.objects.get(id=id)
     reviews = Review.objects.filter(movie=movie)
+    average_rating = 0
+    if reviews.count() != 0:
+        for review in reviews:
+            average_rating += review.rating
+        average_rating = average_rating / reviews.count()
     cast = movie.actor_set.all()
-    return render(request, 'movie_detail.html', {'movie': movie, 'reviews': reviews, 'cast': cast})
+    return render(request, 'movie_detail.html', {'movie': movie, 'reviews': reviews, 'cast': cast, 'average_rating': average_rating})
 
 
 def home(request):

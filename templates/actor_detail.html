@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Actor Profile {% endblock %}
+{% block body %}
+
+<h1>{{actor.name}}</h1>
+<img src="{{actor.image.url}}" alt="A picture of {{actor.name}}"/>
+{% if actor.gender == 1 %}
+<p>Gender: Male</p>
+{% elif actor.gender == 2 %}
+<p>Gender: Female</p>
+{% else %}
+<p>Gender: Other</p>
+{% endif %}
+<p>Birthday: {{actor.birthday}}</p>
+<p>Biography: {{actor.biography}}</p>
+<div class="movies">
+    <ul>
+    {% for movie in actor.movies.all %}
+    <a href="/movies/{{movie.id}}/">
+        <li>
+            <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
+        </li>
+    </a>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
