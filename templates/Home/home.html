@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock title %}
 {% block body %}
 <section id="home">
@@ -117,3 +118,58 @@
     </div>
 </section>
 {% endblock body %}
+<table border="0" width="100%" height="10%"  style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;border-bottom:1px dotted white;box-shadow:1px 1px 5px white;">
+    <table border="0" style="box-shadow:1px 1px 10px white" width="100%" height="70%" align="center">
+    <tr>
+    <td align="center" valign="top">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="{% static 'images/c09d0c1238627ae0c89e410d89c8051b.png' %}" style="width:1100px" height="350px">
+                <div class="text">Caption Text</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="{% static 'images/PicsArt_01-14-09.14.48-1.png' %}" style="width:1100px" height="350px">
+                <div class="text">Caption Two</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="{% static 'images/EoVUuu8XUAAeGz6.png' %}" style="width:1100px" height="350px">
+                <div class="text">Caption Three</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="{% static 'images/Webslider_1440x600_0.png' %}" style="width:1100px" height="350px">
+                <div class="text">Caption Text</div>
+            </div>
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </td>
+    </table>
+    <script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    </script>
