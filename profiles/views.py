@@ -84,6 +84,7 @@ def user_edit(request, id):
         if form.is_valid():
             data = form.cleaned_data
             user.about = data['about']
+            user.image = data['image']
             user.save()
             return render(request, 'user_detail.html')
     form = UserEdit()

@@ -2,12 +2,36 @@
 {% load static %}
 
 {% block content %}
+
 <center>
-    <h1>{{user.username}}<h4><a href="/edit_user/{{user.id}}/">Edit</a></h4>
+    <link rel="stylesheet" href="{% static 'css/user_detail.css' %}">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card p-0">
+                <div class="card-image"> <img src="https://images.pexels.com/photos/2746187/pexels-photo-2746187.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""> </div>
+                <div class="card-content d-flex flex-column align-items-center">
+                    <h4 class="pt-2">SomeOne Famous</h4>
+                    <h5>Creative Desinger</h5>
+                    <ul class="social-icons d-flex justify-content-center">
+                        <li style="--i:1"> <a href="#"> <span class="fab fa-facebook"></span> </a> </li>
+                        <li style="--i:2"> <a href="#"> <span class="fab fa-twitter"></span> </a> </li>
+                        <li style="--i:3"> <a href="#"> <span class="fab fa-instagram"></span> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% if user.image is None %}
+        {% else %}
+        {{user.image}}
+        {% endif %}
+    <h1>{{user.username}}<h4></h4>
     </h1>
 
     <br>
-    <p>About : <br>{{user.about}}</p>
+    <p><a href="/edit_user/{{user.id}}/">About : </a><br>{{user.about}}</p>
     <br><br><br><br><br>
     <p>Watched Movies: <br>{{user.watched_movies}}</p>
     <br><br><br><br><br>
