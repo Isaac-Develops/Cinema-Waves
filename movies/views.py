@@ -8,7 +8,7 @@ from django.shortcuts import (
 from .models import BannerCards, Cards
 from django.contrib.auth.models import auth
 # from django.views.generic import View
-from .models import Movie
+from .models import Movie, Actor
 from reviews.models import Review
 # from actors.models import Actor
 
