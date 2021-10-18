@@ -6,7 +6,7 @@
     <h1>All Actors</h1>
     <div class="cards-results">
     {% for actor in actors %}
-    <a href="/actors/{{actor.id}}/" target="_blank">
+    <a href="/actors/{{actor.id}}/">
         <img src="{{actor.image.url}}" alt="{{actor.name}}">
         <h2>{{actor.name}}</h2>
     </a>

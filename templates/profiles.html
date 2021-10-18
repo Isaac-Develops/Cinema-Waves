@@ -6,7 +6,7 @@
     <h1>All Profiles</h1>
     <div class="cards-results">
     {% for user in profiles %}
-    <a href="/users/{{user.id}}/" target="_blank">
+    <a href="/users/{{user.id}}/">
         <img src="/assets/default_movie.png" alt="{{user.username}}">
         <h2>{{user.username}}</h2>
     </a>
