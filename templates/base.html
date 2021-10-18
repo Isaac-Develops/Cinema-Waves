@@ -485,10 +485,10 @@
                     <button type="submit" class="search-icon"><i class="fas fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
-            <div class="btn1"><a href="https://www.hotstar.com/in/subscribe/get-started">SUBSCRIBE</a></div>
             {% if user.is_authenticated %}
                 <p class="user-login"><a href="/logout/">{{user.get_username}} , Logout</a></p>
             {% else %}
+                <div class="btn1"><a href="/register/">Register</a></div>
                 <div class="user-login"><a href="/login/">Login</a></div>
             {% endif %}
             <div class="search-mobile">

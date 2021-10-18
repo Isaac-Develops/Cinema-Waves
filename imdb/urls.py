@@ -29,7 +29,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path("search/", mview.search, name="search"),
     path("logout/", mview.logout, name="logout"),
-    path('register/', pview.register_user, name='register'),
+    path('register/', pview.RegisterUser.as_view(), name='register'),
     path('edit_user/<int:id>/', pview.user_edit, name='user_edit')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

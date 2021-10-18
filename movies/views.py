@@ -10,7 +10,7 @@ from django.contrib.auth.models import auth
 # from django.views.generic import View
 from .models import Movie
 from reviews.models import Review
-# from actors.models import Actor
+from actors.models import Actor
 
 # Create your views here.
 

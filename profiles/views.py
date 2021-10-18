@@ -61,22 +61,6 @@ def remove_watchedlist_view(request, id):
     return HttpResponseRedirect(reverse('movies', args=(id,)))
 
 
-def register_user(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-        return render(request, 'registration/register_user.html',
-                      {'form': form, })
-
-
 def user_edit(request, id):
     user = User.objects.get(id=id)
     if request.method == 'POST':
@@ -88,6 +72,22 @@ def user_edit(request, id):
             return render(request, 'user_detail.html')
     form = UserEdit()
     return render(request, 'registration/edit_profile.html', {'form': form})
+
+    
+class RegisterUser(View):
+    def get(self, request):
+        form = UserCreationForm()
+        return render(request, 'registration/register_user.html', {'form': form})
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+                return HttpResponseRedirect(reverse('home'))
 
 
 class LoginView(View):
