@@ -104,6 +104,9 @@ body {
 	color: #015871;
 }
 
+p.register{
+  color: white;
+}
 
 </style>
 <center class="blue_logo"><img src="{% static 'images/Cinema_Waves logo.png' %}" id="blue_logo" alt=""></center>
@@ -117,5 +120,5 @@ body {
     {{ form.as_p }}
     <button type="submit" class="sub_but">Register</button>
   </form>
-  <p>Already have a account? <a href="/login/">Login</a></p>
+  <p class="register">Already have a account? <a href="/login/">Login</a></p>
 </center>
