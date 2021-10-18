@@ -2,6 +2,10 @@
 {% block title %} Reviews {% endblock %}
 {% block body %}
 
+<br/>
+<br/>
+<br/>
+<br/>
 <h3>Review by: <a href="/users/{{review.author.id}}/">{{review.author.username}}</a></h3>
 <p>Movie: <a href="/movies/{{review.movie.id}}/">{{review.movie.title}}</a></p>
 <p>Rating: {{review.rating}} Stars</p>
