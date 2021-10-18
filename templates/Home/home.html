@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock title %}
 {% block body %}
 <section id="home">
-<!-- Glide JS - Banner Slide -->
+    <!-- Glide JS - Banner Slide -->
     <div class="glide">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
-            {% for card in bannerCards %}
+                {% for card in bannerCards %}
                 <li class="glide__slide">
-                    <a href="{{card.targetUrl}}" class="banner"  target="_blank">
+                    <a href="{{card.targetUrl}}" class="banner" target="_blank">
                         <div class="container">
                             <div class="left-banner-text">
                                 <h1>{{card.title}}</h1>
@@ -22,98 +23,117 @@
                         </div>
                     </a>
                 </li>
-            {% endfor %}
+                {% endfor %}
             </ul>
         </div>
         <!-- Arrows -->
-        <div class="glide__arrows" data-glide-el="controls">
-            <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-angle-left" aria-hidden="true"></i></button>
-            <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-angle-right" aria-hidden="true"></i></button>
-        </div>
-        </div>
+
+    </div>
 
     <!-- disney+ cards -->
     <div class="thumbnail">
         <a href="https://www.hotstar.com/in/channels/disney" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6347/746347-h" alt="">
-            <video autoplay loop preload="auto" src='static/videos/disney.mp4'></video>
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6347/746347-h"
+                alt="">
+            <video autoplay loop preload="auto" src='#'></video>
         </a>
         <!-- ----- -->
         <a href="https://www.hotstar.com/in/channels/pixar" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6348/746348-h" alt="">
-            <video autoplay loop preload="auto" src='static/videos/pixar.mp4'></video>
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6348/746348-h"
+                alt="">
+            <video autoplay loop preload="auto" src='#'></video>
         </a>
         <!-- ----- -->
         <a href="https://www.hotstar.com/in/channels/marvel" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6349/746349-h" alt="">
-            <video autoplay loop preload="auto" src='static/videos/marvel.mp4'></video>
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6349/746349-h"
+                alt="">
+            <video autoplay loop preload="auto" src='#'></video>
         </a>
         <!-- ----- -->
         <a href="https://www.hotstar.com/in/channels/star-wars" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6357/746357-h" alt="">
-            <video autoplay loop preload="auto" src='static/videos/starwars.mp4'></video>
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6357/746357-h"
+                alt="">
+            <video autoplay loop preload="auto" src='#'></video>
         </a>
         <!-- ----- -->
         <a href="https://www.hotstar.com/in/channels/nat-geo" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6355/746355-h" alt="">
-            <video autoplay loop preload="auto" src='static/videos/netgeo.mp4'></video>
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6355/746355-h"
+                alt="">
+            <video autoplay loop preload="auto" src='#'></video>
         </a>
         <!-- ----- -->
     </div>
     <!-- Cards -->
     <!-- IT'S GAIL'S FAULT -->
-    <div class="recomandations">
-        <a href="#" target="_blank">Recommended For You</a>
-        <div class="glide2 glide-c">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                {% for card in cards %}
-                <li class="glide__slide">
-                    <a href="{{card.targetUrl}}" class="card" target="_blank">
-                        <div class="image-holder">
-                            <img src="{{card.imageurl}}" alt="">
-                        </div>
-                        <div class="title-card">
-                            <h2>{{card.title}}</h2>
-                        </div>
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-        <!-- Arrows -->
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-angle-left" aria-hidden="true"></i></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-angle-right" aria-hidden="true"></i></button>
-            </div>
-        </div>
+
+    <!-- Arrows -->
+
+    </div>
     </div>
     <!-- THIS IS WHY WE CAN'T HAVE NICE THING'S -->
-    <div class="recomandations">
-        <a href="#" target="_blank">Hit Movies</a>
-        <div class="glide3 glide-c">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                {% for card in cards %}
-                <li class="glide__slide">
-                    <a href="{{card.targetUrl}}" class="card" target="_blank">
-                        <div class="image-holder">
-                            <img src="{{card.imageurl}}" alt="">
-                        </div>
-                        <div class="title-card">
-                            <h2>{{card.title}}</h2>
-                        </div>
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-        <!-- Arrows -->
-            <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-angle-left" aria-hidden="true"></i></button>
-                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-angle-right" aria-hidden="true"></i></button>
-            </div>
-        </div>
+
+    <!-- Arrows -->
+
+    </div>
     </div>
 </section>
-{% endblock body %}
+
+<table border="0" width="100%" height="10%"
+    style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;border-bottom:1px dotted white;box-shadow:1px 1px 5px white;">
+    <table border="0" style="box-shadow:1px 1px 10px white" width="100%" height="70%" align="center">
+        <tr>
+            <td align="center" valign="top">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 4</div>
+                        <img src="{% static 'images/c09d0c1238627ae0c89e410d89c8051b.png' %}" style="width:1100px"
+                            height="350px">
+                        <div class="text">Caption Text</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 4</div>
+                        <img src="" style="width:1100px"
+                            height="350px">
+                        <div class="text">Caption Two</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 4</div>
+                        <img src="{% static 'images/EoVUuu8XUAAeGz6.png' %}" style="width:1100px" height="350px">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="{% static 'images/Webslider_1440x600_0.png' %}" style="width:1100px" height="350px">
+                        <div class="text">Caption Text</div>
+                    </div>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </td>
+    </table>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    {% endblock body %}
