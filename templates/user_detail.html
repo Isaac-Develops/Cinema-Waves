@@ -3,15 +3,21 @@
 
 {% block content %}
 <center>
-    <h1>{{user.username}}<h4><a href="/edit_user/{{user.id}}/">Edit</a></h4>
-    </h1>
+    <h1>{{user.username}}</h1>
+    <a href="/edit_user/{{user.id}}/">Edit</a>
 
     <br>
     <p>About : <br>{{user.about}}</p>
     <br><br><br><br><br>
-    <p>Watched Movies: <br>{{user.watched_movies}}</p>
+    <p>Watched Movies:
+    {% for movie in user.watched_movies.all %}
+    <br>{{movie.title}}
+    {% endfor %}</p>
     <br><br><br><br><br>
-    <p>Watchlist: <br>{{user.watchlist}}</p>
+    <p>Watchlist:
+    {% for movie in user.watchlist.all %}
+    <br>{{movie.title}}
+    {% endfor %}</p>
     <br><br><br><br><br>
 </center>
 {% endblock content %}

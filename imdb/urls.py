@@ -12,6 +12,7 @@ from profiles import views as pview
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", mview.home, name="home"),
+    path('users/', pview.all_profiles_view, name='all_profiles'),
     path('users/<int:id>/', pview.user_profile_view, name='profiles'),
     path('users/watchlist/add/<int:id>/',
          pview.watchlist_view, name='watchlist'),
@@ -24,7 +25,10 @@ urlpatterns = [
     path('reviews/<int:id>/', rview.review_detail_view, name='reviews'),
     path('reviews/create/<int:id>/',
          rview.CreateReviewView.as_view(), name='create_review'),
+    path('movies/',
+         mview.all_movies_view, name="all_movies"),
     path('movies/<int:id>/', mview.movie_detail_view, name='movies'),
+    path('actors/', aview.all_actors_view, name="all_actors"),
     path('actors/<int:id>/', aview.actor_detail_view, name='actors'),
     path('login/', LoginView.as_view(), name='login'),
     path("search/", mview.search, name="search"),

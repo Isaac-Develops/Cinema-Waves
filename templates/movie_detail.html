@@ -20,6 +20,7 @@
 <p>There are no reviews for this movie...</p>
 {% else %}
 <p>Rating: {{average_rating}} Stars</p>
+<a href="/reviews/create/{{movie.id}}">Write a review</a>
 <div class="reviews">
     <ul>
         {% for review in reviews %}

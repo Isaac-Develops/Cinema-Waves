@@ -1,3 +1,4 @@
+import math
 from django.shortcuts import (
     redirect,
     render,
@@ -7,7 +8,7 @@ from django.shortcuts import (
 )
 from .models import BannerCards, Cards
 from django.contrib.auth.models import auth
-# from django.views.generic import View
+
 from .models import Movie
 from reviews.models import Review
 from actors.models import Actor
@@ -22,9 +23,14 @@ def movie_detail_view(request, id):
     if reviews.count() != 0:
         for review in reviews:
             average_rating += review.rating
-        average_rating = average_rating / reviews.count()
+        average_rating = math.floor((average_rating / reviews.count()) * 10) / 10
     cast = movie.actor_set.all()
     return render(request, 'movie_detail.html', {'movie': movie, 'reviews': reviews, 'cast': cast, 'average_rating': average_rating})
+
+
+def all_movies_view(request):
+    movies = Movie.objects.all()
+    return render(request, "movies.html", {'movies': movies})
 
 
 def home(request):
@@ -44,6 +50,7 @@ def search(request):
     context = {
         'movies': movies,
         "actors": actors,
+        "query": query
     }
     return render(request, "Home/search.html", context)
 
