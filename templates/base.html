@@ -417,9 +417,13 @@
             <div class="bars">
                 <i class="fas fa-bars" aria-hidden="true"></i>
                 <div class="dropdown">
-                    <li><a href="/users/watchedlist/add/{{user.id}}/">Watched Movies</a></li>
-                    <li><a href="/users/watchlist/add/{{user.id}}/">Watchlist</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="/">Home</a></li>
                     <li><a href="/users/{{user.id}}/">Profile</a></li>
+                    {% else %}
+                    <li><a href="/register/">Register</a></li>
+                    <li><a href="/login/">Login</a></li>
+                    {% endif %}
                 </div>
             </div>
             <div class="brand">
@@ -429,53 +433,11 @@
             </div>
             <nav>
                 <ul>
-                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/tv">TV</a>
-                        <ul class="li-ul-dropdown">
-                            <li><a href="https://www.hotstar.com/in/channels/hotstar-specials">Hotstar Special</a></li>
-                            <li><a href="https://www.hotstar.com/in/channels/starplus">Star Plus</a></li>
-                            <li><a href="https://www.hotstar.com/in/channels/showtime">Show Time</a></li>
-                            <li><a href="https://www.hotstar.com/in/channels/quix">Quix</a></li>
-                            <li><a href="https://www.hotstar.com/in/channels/fox-life">Foxlife</a></li>
-                            <li><a href="https://www.hotstar.com/in/channels">more..</a></li>
-                        </ul>
-                   </li>
-                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/movies<">Movies</a>
-                         <ul class="li-ul-dropdown">
-                            <li><a href="https://www.hotstar.com/in/movies/languages/hindi">Hindi</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/english">English</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/marathi">Marathi</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/telugu">Telugu</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/bengali">Bengali</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/malayalam">Malayalam</a></li>
-                            <li><a href="https://www.hotstar.com/in/movies/languages/kannada">Kannada</a></li>
-                         </ul>
-                   </li>
-                   <li class="drop-down-parent"><a href="https://www.hotstar.com/in/sports">Sports</a>
-                         <ul class="li-ul-dropdown">
-                            <li><a href="https://www.hotstar.com/in/sports/cricket">Cricket</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/football">Football</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/badminton">Badminton</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/tennis">Tennis</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/formula-1">Formula 1</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/golf">Golf</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/hockey">Hockey</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/wrestling">Wrestling</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/kabaddi">Kabaddi</a></li>
-                            <li><a href="https://www.hotstar.com/in/sports/esports">eSports</a></li>
-                         </ul>
-                   </li>
-                   <li><a href="/users/{{user.id}}/">Profile</a></li>
-                   <li><a href="https://www.hotstar.com/in/premium">Premium</a></li>
-                   <li><a href="#">Actors</a></li>
+                   <li class="drop-down-parent"><a href="/movies/">Movies</a></li>
+                   <li><a href="/users/">Profiles</a></li>
+                   <li><a href="/actors/">Actors</a></li>
                 </ul>
             </nav>
-            <div class="kids">
-                <a href="https://www.hotstar.com/in">
-                    <div class="kids-logo">
-                        <img src="{% static 'images/kids.svg' %}" alt="">
-                    </div>
-                </a>
-            </div>
         </div>
         <div class="right-header">
             <form action="/search/" class="search-form">
@@ -485,10 +447,10 @@
                     <button type="submit" class="search-icon"><i class="fas fa-search" aria-hidden="true"></i></button>
                 </div>
             </form>
-            <div class="btn1"><a href="https://www.hotstar.com/in/subscribe/get-started">SUBSCRIBE</a></div>
             {% if user.is_authenticated %}
                 <p class="user-login"><a href="/logout/">{{user.get_username}} , Logout</a></p>
             {% else %}
+                <div class="btn1"><a href="/register/">Register</a></div>
                 <div class="user-login"><a href="/login/">Login</a></div>
             {% endif %}
             <div class="search-mobile">
@@ -575,7 +537,7 @@
     </footer>
     <!-- Scripts -->
     <script src="{% static 'js/app.js'%}"></script>
-    <script src="{% static 'js/glide.min.js'%}"></script>
+    <script src=""></script>
     <script>
         new Glide('.glide', {
             type:'carousel',

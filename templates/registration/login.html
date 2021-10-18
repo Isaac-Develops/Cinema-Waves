@@ -30,15 +30,6 @@
     color: black;
   }
 
-  /* button.sub_but:hover {
-    opacity: 1;
-    margin-left: 100%;
-    margin-top: 50%;
-    width: 25%;
-    color: rgb(255, 255, 255);
-    background-color: black;
-  } */
-
   label { 
 	color: #68b8c1; 	
 	font-weight: bold; 
@@ -48,7 +39,7 @@
 	float: center;
 	}
 
-	// best seen at 1500px or less
+	/* best seen at 1500px or less */
 
 html, body { height: 100%; }
 body {
@@ -104,20 +95,21 @@ body {
 	color: #015871;
 }
 
+p.register{
+  color: white;
+}
 
 </style>
-
-		<center class="blue_logo"><img src="{% static 'images/Cinema_Waves_blue.png' %}" id="blue_logo" alt=""></center>
-
+<center class="blue_logo"><img src="{% static 'images/Cinema_Waves logo.png' %}" id="blue_logo" alt=""></center>
 <div class="ocean">
 	<div class="wave"></div>
 	<div class="wave"></div>
-  </div>	
+</div>	
 <center class="log_head">
   <form method="post" class="background">
-
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="sub_but">Log In</button>
   </form>
+  <p class="register">Need an account? <a href="/register/">Sign Up</a></p>
 </center>

@@ -1,27 +1,37 @@
 {% extends 'base.html' %}
 {% block title %}Search{% endblock title %}
 {% block body %}
-<section id="search">
-    <h1>Showing all results for <span>"{{query}}"</span></h1> 
-    <div class="actors">
-        <ul>
-            {% for actor in actors %}
-            <a href="/actors/{{actor.id}}/">
-                <li>
-                    <img src="{{actor.image.url}}" alt="{{actor.name}}"/>
-                </li>
-            </a>
-            <div class="movies">
-                <ul>
-                    {% for movie in movies %}
-                    <a href="/movies/{{movie.id}}/">
-                        <li>
-                            <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
-                        </li>
-                    </a>
-
-            {% endfor %}
-        </ul>
+    <section id="search">
+    {% if query != "" %}
+    <h1>Showing all results for <span>"{{query}}"</span></h1>
+    {% else %}
+    <h1>Showing all Actors and Movies</h1>
+    {% endif %}
+    <h1>Actors</h1>
+    <div class="cards-results">
+    {% if actors.count != 0 %}
+    {% for actor in actors  %}
+        <a href="/actors/{{actor.id}}/">
+            <img src="{{actor.image.url}}" alt="{{actor.name}}">
+            <h2>{{actor.name}}</h2>
+        </a>
+    {% endfor %}
+    {% else %}
+    <p>No Results...</p>
+    {% endif %}
+    </div>
+    <h1>Movies</h1>
+    <div class="cards-results">
+    {% if movies.count != 0 %}
+    {% for movie in movies  %}
+        <a href="/movies/{{movie.id}}/">
+            <img src="{{movie.image.url}}" alt="{{movie.title}}">
+            <h2>{{movie.title}}</h2>
+        </a>
+    {% endfor %}
+    {% else %}
+    <p>No Results...</p>
+    {% endif %}
     </div>
     </section>
 {% endblock body %} 
