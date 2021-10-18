@@ -78,6 +78,23 @@ def user_edit(request, id):
     form = UserEdit()
     return render(request, 'registration/edit_profile.html', {'form': form})
 
+    
+class RegisterView(View):
+    def get(self, request):
+        form = UserCreationForm()
+        return render(request, 'registration/register_user.html', {'form': form})
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            User.objects.create_user(username=username, password=password)
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('home')
+
 
 # def register_user(request):
 #     if request.method == "POST":
