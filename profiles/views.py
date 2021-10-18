@@ -25,6 +25,11 @@ def user_profile_view(request, id):
     return render(request, 'user_detail.html', {'user': user, 'reviews': reviews})
 
 
+def all_profiles_view(request):
+    profiles = User.objects.all()
+    return render(request, 'profiles.html', {'profiles': profiles})
+
+
 @login_required
 def watchlist_view(request, id):
     user = request.user

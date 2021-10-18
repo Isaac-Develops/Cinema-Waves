@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} Movies {% endblock %}
+{% block body %}
+
+<section id="search">
+    <h1>All Profiles</h1>
+    <div class="cards-results">
+    {% for user in profiles %}
+    <a href="/users/{{user.id}}/" target="_blank">
+        <img src="/assets/default_movie.png" alt="{{user.username}}">
+        <h2>{{user.username}}</h2>
+    </a>
+    {% endfor %}
+    </div>
+    </section>
+
+{% endblock %}

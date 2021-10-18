@@ -27,6 +27,11 @@ def movie_detail_view(request, id):
     return render(request, 'movie_detail.html', {'movie': movie, 'reviews': reviews, 'cast': cast, 'average_rating': average_rating})
 
 
+def all_movies_view(request):
+    movies = Movie.objects.all()
+    return render(request, "movies.html", {'movies': movies})
+
+
 def home(request):
     bannerCards = BannerCards.objects.all()
     cards = Cards.objects.all()
