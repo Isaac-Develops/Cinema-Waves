@@ -8,7 +8,7 @@ class LoginForm(forms.ModelForm):
         fields = (
             "username",
             "password",
-            )
+        )
 
 
 class UserCreationForm(forms.Form):
