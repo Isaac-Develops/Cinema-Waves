@@ -85,11 +85,11 @@ Add additional notes about how to deploy this on a live system.
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [Issac Butterfield](https://github.com/Isaac-Develops) - (scrum role here)
-- [Occie Holloway](https://github.com/occie-holloway) - (scrum role here)
-- [Stephanie Guzman](https://github.com/stephguzman) - (scrum role here)
-- [Gail Giles](https://github.com/gilesgr12) - (scrum role here)
-- [John Cook](https://github.com/cooksta120021) - (scrum role here)
+- [Issac Butterfield](https://github.com/Isaac-Develops) - Scrum Master
+- [Occie Holloway](https://github.com/occie-holloway) - Product Owner
+- [Stephanie Guzman](https://github.com/stephguzman) - Developer
+- [Gail Giles](https://github.com/gilesgr12) - Developer
+- [John Cook](https://github.com/cooksta120021) - Developer
 
 See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
