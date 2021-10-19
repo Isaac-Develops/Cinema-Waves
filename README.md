@@ -49,7 +49,7 @@ Simply use poetry install to get all dependancies.
 poetry install
 ```
 
-Next, reach out to a team member to get the secret key necessary. Create a .env file in the folder 'imdb', and put in the key like so:
+Next, reach out to a team member to get the secret key necessary to run django. Create a .env file in the folder 'imdb', and put in the key like so:
 
 ```text
 SECRET_KEY={Insert Key Here}
