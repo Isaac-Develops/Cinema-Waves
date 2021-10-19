@@ -3,10 +3,16 @@
 
 {% block content %}
 <center>
-    <h1>{{user.username}}<h4><a href="/edit_user/{{user.id}}/">Edit</a></h4>
+    <h1>{{user.username}}<h4></h4>
+    {% if user == request.user %}
+    <a href="/edit_user/{{user.id}}/">Edit</a></h4>
+    {% endif %}
     </h1>
     <br>
+    {% if about != None %}
     <p>About : <br>{{user.about}}</p>
+    {% else %}
+    {% endif %}
     <br><br><br><br><br>
     <p>Watched Movies:
     {% if user.watched_movies.all.count == 0 %}
