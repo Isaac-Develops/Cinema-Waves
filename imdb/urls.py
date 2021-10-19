@@ -16,7 +16,7 @@ urlpatterns = [
     path('users/<int:id>/', pview.user_profile_view, name='profiles'),
     path('users/watchlist/add/<int:id>/',
          pview.watchlist_view, name='watchlist'),
-    path('users/watchedlist/add/<int:id>',
+    path('users/watchedlist/add/<int:id>/',
          pview.watched_list_view, name='watched_list'),
     path('users/watchlist/remove/<int:id>/',
          pview.remove_watchlist_view, name='watchlist_remove'),

@@ -9,14 +9,34 @@
     <p>About : <br>{{user.about}}</p>
     <br><br><br><br><br>
     <p>Watched Movies:
-    {% for movie in user.watched_movies.all %}
-    <br>{{movie.title}}
-    {% endfor %}</p>
+    {% if user.watched_movies.all.count == 0 %}
+    <br>There are no movies here...</p>
+    {% else %}
+    <div class="cards-results">
+        {% for movie in user.watched_movies.all %}
+        <a href="/movies/{{movie.id}}/">
+            <img src="{{movie.image.url}}" alt="{{movie.title}}">
+            <h2>{{movie.title}}</h2>
+        </a>
+        <br/>
+        {% endfor %}
+    </div>
+    {% endif %}
     <br><br><br><br><br>
     <p>Watchlist:
-    {% for movie in user.watchlist.all %}
-    <br>{{movie.title}}
-    {% endfor %}</p>
+    {% if user.watchlist.all.count == 0 %}
+    <br>There are no movies here...</p>
+    {% else %}
+    <div class="cards-results">
+        {% for movie in user.watchlist.all %}
+        <a href="/movies/{{movie.id}}/">
+            <img src="{{movie.image.url}}" alt="{{movie.title}}">
+            <h2>{{movie.title}}</h2>
+        </a>
+        <br/>
+        {% endfor %}
+    </div>
+    {% endif %}
     <br><br><br><br><br>
 </center>
 {% endblock content %}

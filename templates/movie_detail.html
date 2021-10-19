@@ -16,6 +16,19 @@
 {% endif %}
 <p>Language: {{movie.language}}</p>
 <p>Year of Production: {{movie.year_of_production}}</p>
+{% if user.is_anonymous %}
+{% else %}
+    {% if movie in user.watched_movies.all %}
+    <a href="/users/watchlist/add/{{movie.id}}/">Add to Watchlist</a>
+    <a href="/users/watchedlist/remove/{{movie.id}}/">Remove from Watched Movies</a>
+    {% elif movie in user.watchlist.all %}
+    <a href="/users/watchlist/remove/{{movie.id}}/">Remove from Watchlist</a>
+    <a href="/users/watchedlist/add/{{movie.id}}/">Add to Watched Movies</a>
+    {% else %}
+    <a href="/users/watchlist/add/{{movie.id}}/">Add to Watchlist</a>
+    <a href="/users/watchedlist/add/{{movie.id}}/">Add to Watched Movies</a>
+    {% endif %}
+{% endif %}
 {% if average_rating == 0 %}
 <p>There are no reviews for this movie...</p>
 {% else %}
