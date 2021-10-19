@@ -30,37 +30,23 @@
 
     </div>
 
-    <!-- disney+ cards -->
+    <!-- Result cards -->
+    <section id="results"><h1>Top Movies</h1></section>
     <div class="thumbnail">
-        <a href="https://www.hotstar.com/in/channels/disney" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6347/746347-h"
-                alt="">
-            <video autoplay loop preload="auto" src='#'></video>
+        {% for movie in movies %}
+        <a href="/movies/{{movie.id}}" class="box">
+            <img src="{{movie.image.url}}" alt="{{movie.title}}">
         </a>
+        {% endfor %}
         <!-- ----- -->
-        <a href="https://www.hotstar.com/in/channels/pixar" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6348/746348-h"
-                alt="">
-            <video autoplay loop preload="auto" src='#'></video>
+    </div>
+    <section id="results"><h1>Top Actors</h1></section>
+    <div class="thumbnail">
+        {% for actor in actors %}
+        <a href="/actors/{{actor.id}}" class="box">
+            <img src="{{actor.image.url}}" alt="{{actor.name}}">
         </a>
-        <!-- ----- -->
-        <a href="https://www.hotstar.com/in/channels/marvel" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6349/746349-h"
-                alt="">
-            <video autoplay loop preload="auto" src='#'></video>
-        </a>
-        <!-- ----- -->
-        <a href="https://www.hotstar.com/in/channels/star-wars" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6357/746357-h"
-                alt="">
-            <video autoplay loop preload="auto" src='#'></video>
-        </a>
-        <!-- ----- -->
-        <a href="https://www.hotstar.com/in/channels/nat-geo" class="box" target="_blank">
-            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_hs_1x/sources/r1/cms/prod/6355/746355-h"
-                alt="">
-            <video autoplay loop preload="auto" src='#'></video>
-        </a>
+        {% endfor %}
         <!-- ----- -->
     </div>
     <!-- Cards -->
