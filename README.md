@@ -78,5 +78,5 @@ Run python manage.py runserver and open your localhost
 - Inspiration - IMDb 
   (https://imdb.com/)<br>
 
-- References
-- [CSS Wave Animation](https://codeconvey.com/pure-css-wave-animation/)
+- References:
+  - [CSS Wave Animation](https://codeconvey.com/pure-css-wave-animation/)
