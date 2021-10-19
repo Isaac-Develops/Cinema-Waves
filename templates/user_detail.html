@@ -3,22 +3,43 @@
 
 {% block content %}
 <center>
-    <h1>{{user.username}}<h4><a href="/edit_user/{{user.id}}/">Edit</a></h4>
+    <style>
+        a {
+            color: #3391ff;
+        }
+    </style>
+    <h1>{{profile.username}}<h4></h4>
+    {% if user == profile %}
+    <a href="/edit_user/{{profile.id}}/">Edit</a></h4>
+    {% endif %}
     </h1>
     <br>
-    <p>About : <br>{{user.about}}</p>
+    <p>About : <br>{{profile.about}}</p>
     <br><br><br><br><br>
     <p>Watched Movies:
-        {% for movie in user.watched_movies.all %}
-        <br>{{movie.title}}
+
+    {% if profile.watched_movies.all.count == 0 %}
+    <br>There are no movies here...</p>
+    {% else %}
+    <div class="cards-results">
+        {% for movie in profile.watched_movies.all %}
+        <a href="/movies/{{movie.id}}/">{{movie.title}}</a>
+        <br/>
         {% endfor %}
-    </p>
+    </div>
+    {% endif %}
     <br><br><br><br><br>
     <p>Watchlist:
-        {% for movie in user.watchlist.all %}
-        <br>{{movie.title}}
+    {% if profile.watchlist.all.count == 0 %}
+    <br>There are no movies here...</p>
+    {% else %}
+    <div class="cards-results">
+        {% for movie in profile.watchlist.all %}
+        <a href="/movies/{{movie.id}}/">{{movie.title}}</a>
+        <br/>
         {% endfor %}
-    </p>
+    </div>
+    {% endif %}
     <br><br><br><br><br>
 </center>
 {% endblock content %}

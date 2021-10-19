@@ -22,7 +22,7 @@ from profiles.forms import UserCreationForm, UserEdit
 def user_profile_view(request, id):
     user = User.objects.get(id=id)
     reviews = Review.objects.filter(author=user)
-    return render(request, 'user_detail.html', {'user': user, 'reviews': reviews})
+    return render(request, 'user_detail.html', {'profile': user, 'reviews': reviews})
 
 
 def all_profiles_view(request):

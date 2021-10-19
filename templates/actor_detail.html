@@ -2,48 +2,47 @@
 {% block title %} Actor Profile {% endblock %}
 {% block body %}
 
+<br>
+<br>
+<br>
+<br>
+<center>
+    <style>
+        a {
+            color: #3391ff;
+        }
+    </style>
 <div class="row">
 
     <div class="col s12 m12">
-        <div class="card">
-            <div class="card-image">
-                <h1>{{actor.name}}</h1>
-                <img src="{{actor.image.url}}" alt="A picture of {{actor.name}}" />
-                {% if actor.gender == 1 %}
-                <p>Gender: Male</p>
-                {% elif actor.gender == 2 %}
-                <p>Gender: Female</p>
-                {% else %}
-                <p>Gender: Other</p>
-                {% endif %}
-                <p>Birthday: {{actor.birthday}}</p>
-                <p>Biography:
-                <pre>{{actor.biography}}</pre>
-                </p>
 
-            </div>
-        </div>
-    </div>
+      <div class="card">
+        <div class="card-image">
+<h1>{{actor.name}}</h1>
+<img src="{{actor.image.url}}" alt="A picture of {{actor.name}}"/>
+<br>
+<br>
+{% if actor.gender == 1 %}
+<p>Gender: Male</p>
+{% elif actor.gender == 2 %}
+<p>Gender: Female</p>
+{% else %}
+<p>Gender: Other</p>
+{% endif %}
+<br>
+<p>Birthday: {{actor.birthday}}</p>
+<br>
+<p>Biography: {{actor.biography}}</p>
+<br><br>
+<h4 class="orange-text">Known for: </h4>
+<div class="divider"></div>
+<div class="movies">
+    <ul>
+    {% for movie in actor.movies.all %}
+    <li><a href="/movies/{{movie.id}}/">{{movie.title}}</a></li>
+    </ul>
+    {% endfor %}
+</div>
+</center>
 
-    <br><br>
-    <h4 class="orange-text">Known for: </h4>
-    <div class="divider"></div>
-    <div class="movies">
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    {% for movie in actor.movies.all %}
-                    <a href="/movies/{{movie.id}}/">
-                        <div class="card-content">
-                            <img src="{{movie.image.url}}" alt="{{movie.title}}" />
-
-                    </a>
-
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
-    </div>
-
-    {% endblock %}
+{% endblock %}

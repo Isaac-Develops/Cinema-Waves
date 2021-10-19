@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 {% block title %} Movies {% endblock %}
 {% block body %}
-
+<br>
+<br>
+<br>
+<br>
+<center>
+    <style>
+        a {
+            color: #3391ff;
+        }
+    </style>
 <h1>{{movie.title}}</h1>
 <img src="{{movie.image.url}}" alt="{{movie.title}} Movie Poster"/>
+<br>
+<br>
 <p>Description: {{movie.description}}</p>
+<br>
+<br>
 {% if movie.category == 'A' %}
 <p>Genre: Action</p>
 {% elif movie.category == 'D' %}
@@ -14,13 +27,38 @@
 {% else %}
 <p>Genre: Romance</p>
 {% endif %}
+<br>
 <p>Language: {{movie.language}}</p>
+<br>
 <p>Year of Production: {{movie.year_of_production}}</p>
+<br>
+{% if user.is_anonymous %}
+{% else %}
+    {% if movie in user.watched_movies.all %}
+    <p><a href="/users/watchlist/add/{{movie.id}}/">Add to Watchlist</a></p>
+    <br>
+    <p><a href="/users/watchedlist/remove/{{movie.id}}/">Remove from Watched Movies</a></p>
+    {% elif movie in user.watchlist.all %}
+    <p><a href="/users/watchlist/remove/{{movie.id}}/">Remove from Watchlist</a></p>
+    <br>
+    <p><a href="/users/watchedlist/add/{{movie.id}}/">Add to Watched Movies</a></p>
+    {% else %}
+    <p><a href="/users/watchlist/add/{{movie.id}}/">Add to Watchlist</a></p>
+    <br>
+    <p><a href="/users/watchedlist/add/{{movie.id}}/">Add to Watched Movies</a></p>
+    {% endif %}
+{% endif %}
+<br>
+{% if user.is_anonymous %}
+{% else %}
+<p><a href="/reviews/create/{{movie.id}}">Write a review</a></p>
+{% endif %}
+<br>
 {% if average_rating == 0 %}
 <p>There are no reviews for this movie...</p>
 {% else %}
 <p>Rating: {{average_rating}} Stars</p>
-<a href="/reviews/create/{{movie.id}}">Write a review</a>
+<br>
 <div class="reviews">
     <ul>
         {% for review in reviews %}
@@ -33,16 +71,19 @@
     </ul>
 </div>
 {% endif %}
+<br>
 <div class="cast">
-    <ul>
+    <p>Cast:</p>
+    <li>
+        {% if cast.count == 0 %}
+        <li>None</li>
+        {% else %}
         {% for actor in cast %}
-        <a href="/actors/{{actor.id}}/">
-            <li>
-                <img src="{{actor.image.url}}" alt="{{actor.name}}"/>
-            </li>
-        </a>
+        <li><a href="/actors/{{actor.id}}/">{{actor.name}}</a></li>
         {% endfor %}
+        {% endif %}
     </ul>
 </div>
+</center>
 
 {% endblock %}
