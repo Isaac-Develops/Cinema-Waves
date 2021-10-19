@@ -9,14 +9,16 @@
     <p>About : <br>{{user.about}}</p>
     <br><br><br><br><br>
     <p>Watched Movies:
-    {% for movie in user.watched_movies.all %}
-    <br>{{movie.title}}
-    {% endfor %}</p>
+        {% for movie in user.watched_movies.all %}
+        <br>{{movie.title}}
+        {% endfor %}
+    </p>
     <br><br><br><br><br>
     <p>Watchlist:
-    {% for movie in user.watchlist.all %}
-    <br>{{movie.title}}
-    {% endfor %}</p>
+        {% for movie in user.watchlist.all %}
+        <br>{{movie.title}}
+        {% endfor %}
+    </p>
     <br><br><br><br><br>
 </center>
 {% endblock content %}
