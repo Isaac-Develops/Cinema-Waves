@@ -98,5 +98,7 @@ See also the list of [contributors](https://github.com/kylelobo/The-Documentatio
 - Disney Hotstar Clone in Django - YouTube 
   (https://www.youtube.com/watch?v=8Xc89Knyy9g)<br>
   
-- Inspiration
+- Inspiration - IMDb
+- (https://imdb.com/)<br>
+
 - References
