@@ -6,6 +6,11 @@
 <br>
 <br>
 <center>
+    <style>
+        a {
+            color: #3391ff;
+        }
+    </style>
 <h1>{{movie.title}}</h1>
 <img src="{{movie.image.url}}" alt="{{movie.title}} Movie Poster"/>
 <br>
@@ -44,12 +49,12 @@
     {% endif %}
 {% endif %}
 <br>
-{% if average_rating == 0 %}
 {% if user.is_anonymous %}
 {% else %}
 <p><a href="/reviews/create/{{movie.id}}">Write a review</a></p>
 {% endif %}
 <br>
+{% if average_rating == 0 %}
 <p>There are no reviews for this movie...</p>
 {% else %}
 <p>Rating: {{average_rating}} Stars</p>
@@ -69,14 +74,14 @@
 <br>
 <div class="cast">
     <p>Cast:</p>
-    <ul>
+    <li>
+        {% if cast.count == 0 %}
+        <li>None</li>
+        {% else %}
         {% for actor in cast %}
-        <a href="/actors/{{actor.id}}/">
-            <li>
-                <img src="{{actor.image.url}}" alt="{{actor.name}}"/>
-            </li>
-        </a>
+        <li><a href="/actors/{{actor.id}}/">{{actor.name}}</a></li>
         {% endfor %}
+        {% endif %}
     </ul>
 </div>
 </center>

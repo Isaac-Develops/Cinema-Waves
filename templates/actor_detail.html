@@ -7,6 +7,11 @@
 <br>
 <br>
 <center>
+    <style>
+        a {
+            color: #3391ff;
+        }
+    </style>
 <div class="row">
 
     <div class="col s12 m12">
@@ -27,30 +32,15 @@
 <p>Birthday: {{actor.birthday}}</p>
 <br>
 <p>Biography: {{actor.biography}}</p>
-
-</div>
-</div>
-</div>
-
 <br><br>
 <h4 class="orange-text">Known for: </h4>
 <div class="divider"></div>
 <div class="movies">
-        <div class="col s12 m4">
-            <div class="card">
-              <div class="card-image">
+    <ul>
     {% for movie in actor.movies.all %}
-    <a href="/movies/{{movie.id}}/">
-        <div class="card-content">
-            <img src="{{movie.image.url}}" alt="{{movie.title}}"/>
-
-    </a>
-
-</div>
-</div>
-</div>
+    <li><a href="/movies/{{movie.id}}/">{{movie.title}}</a></li>
+    </ul>
     {% endfor %}
-  
 </div>
 </center>
 
