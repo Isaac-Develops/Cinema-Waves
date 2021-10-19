@@ -25,7 +25,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
-- [Built Using] (Django, Python)
+- [Built Using] (Django, Python, HTML/CSS, JavaScript)
 - [Authors] Occie Holloway, <br>
   Issac Butterfield, <br>
   Stephanie Guzman, <br>
@@ -35,54 +35,32 @@
 
 ## 🧐 About <a name = "Imdb"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Cinema Waves is an IMDb-like app where anyone can search movies, actors, check reviews, and leave reviews themselves.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
-
-```
--Pillow
-```
+Use Poetry to install dependancies and create the virtual enviroment.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Simply use poetry install to get all dependancies.
 
 ```text
--install secret key
-create a .env file
-set the key in the settings.py
+poetry install
 ```
 
-And repeat
+Next, reach out to a team member to get the secret key necessary. Create a .env file in the folder 'imdb', and put in the key like so:
 
 ```text
-until finished
+SECRET_KEY={Insert Key Here}
 ```
 
 Run python manage.py runserver and open your localhost
 
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
-
-## 🚀 Deployment <a name = "deployment"></a>
-
-Add additional notes about how to deploy this on a live system.
-
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- []() - Database
-- []() - Server Framework
-- []() - Web Framework
-- []() - Server Environment
+- [SQLite](https://www.sqlite.org/index.html) - Database
+- [Django](https://www.djangoproject.com/) - Web Framework
 
 ## ✍️ Authors <a name = "authors"></a>
 
@@ -91,8 +69,6 @@ Add additional notes about how to deploy this on a live system.
 - [Stephanie Guzman](https://github.com/stephguzman) - Developer
 - [Gail Giles](https://github.com/gilesgr12) - Developer
 - [John Cook](https://github.com/cooksta120021) - Developer
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
@@ -103,3 +79,4 @@ See also the list of [contributors](https://github.com/kylelobo/The-Documentatio
   (https://imdb.com/)<br>
 
 - References
+- [CSS Wave Animation](https://codeconvey.com/pure-css-wave-animation/)
