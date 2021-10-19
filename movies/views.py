@@ -1,4 +1,5 @@
 import math
+import random
 from django.shortcuts import (
     redirect,
     render,
@@ -35,9 +36,13 @@ def all_movies_view(request):
 def home(request):
     bannerCards = BannerCards.objects.all()
     cards = Cards.objects.all()
+    movies = list(Movie.objects.all())
+    actors = list(Actor.objects.all())
     context = {
         'bannerCards': bannerCards,
         'cards': cards,
+        'movies': random.sample(movies, 6),
+        'actors': random.sample(actors, 6),
     }
     return render(request, "Home/home.html", context)
 
