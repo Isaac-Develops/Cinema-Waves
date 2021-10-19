@@ -9,10 +9,7 @@
     {% endif %}
     </h1>
     <br>
-    {% if about != None %}
     <p>About : <br>{{profile.about}}</p>
-    {% else %}
-    {% endif %}
     <br><br><br><br><br>
     <p>Watched Movies:
     {% if profile.watched_movies.all.count == 0 %}
