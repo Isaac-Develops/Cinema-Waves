@@ -41,5 +41,18 @@
     </div>
     {% endif %}
     <br><br><br><br><br>
+    <p>Reviews:
+        {% if reviews.count == 0 %}
+        <br>This user hasn't written any reviews...</p>
+        {% else %}
+        <div class="cards-results">
+            {% for review in reviews %}
+            <p>{{review.movie.title}}: {{review.rating}} Stars</p>
+            <a href="/reviews/{{review.id}}/">See Review</a>
+            <br/>
+            <br/>
+            {% endfor %}
+        </div>
+        {% endif %}
 </center>
 {% endblock content %}
