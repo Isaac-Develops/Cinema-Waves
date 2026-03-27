@@ -27,7 +27,7 @@
 - [Usage](#usage)
 - [Built Using] (Django, Python, HTML/CSS, JavaScript)
 - [Authors] Occie Holloway, <br>
-  Issac Butterfield, <br>
+  Isaac Butterfield, <br>
   Stephanie Guzman, <br>
   Gail Giles, <br>
   John Cook
@@ -64,7 +64,7 @@ Run python manage.py runserver and open your localhost
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [Issac Butterfield](https://github.com/Isaac-Develops) - Scrum Master
+- [Isaac Butterfield](https://github.com/Isaac-Develops) - Scrum Master
 - [Occie Holloway](https://github.com/occie-holloway) - Product Owner
 - [Stephanie Guzman](https://github.com/stephguzman) - Developer
 - [Gail Giles](https://github.com/gilesgr12) - Developer
